@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(onLoginClick: () -> Unit) {
+fun IniciadoScreen(onLogoutClick: () -> Unit) {
 
-    // Fondo degradado suave
+    // Fondo degradado igual al login / home
     val gradient = Brush.verticalGradient(
         colors = listOf(
             Color(0xFF6F4E37), // café
@@ -25,19 +25,19 @@ fun HomeScreen(onLoginClick: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Home") },
+                title = { Text("Inicio") },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color(0xFF6F4E37),
                     titleContentColor = Color.White
                 ),
                 actions = {
                     TextButton(
-                        onClick = onLoginClick,
+                        onClick = onLogoutClick,
                         colors = ButtonDefaults.textButtonColors(
                             contentColor = Color.White
                         )
                     ) {
-                        Text("Login")
+                        Text("Cerrar sesión")
                     }
                 }
             )
@@ -47,14 +47,14 @@ fun HomeScreen(onLoginClick: () -> Unit) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(gradient)   // AQUÍ: fondo degradado aplicado
+                .background(gradient)  // Fondo degradado aplicado aquí
                 .padding(padding),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                "Pantalla Home sin iniciar sesión",
-                color = Color(0xFF3E2723), // café oscuro profesional
-                style = MaterialTheme.typography.headlineSmall
+                text = "Bienvenido a RentUS",
+                style = MaterialTheme.typography.headlineMedium,
+                color = Color(0xFF3E2723) // café oscuro elegante
             )
         }
     }
